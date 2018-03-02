@@ -22,6 +22,8 @@ gem 'autoprefixer-rails'
 gem 'social-share-button'
 gem 'friendly_id'
 gem 'aws-sdk'
+gem 'devise'
+gem 'pundit'
 
 group :development, :test do
   gem 'byebug', platform: :mri

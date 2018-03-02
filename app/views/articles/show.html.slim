@@ -1,0 +1,15 @@
+p
+  strong Title:
+  = @article.title
+p
+  = @article.body
+p
+  strong Description:
+  = @article.description
+p
+  strong Published:
+  = @article.published
+
+= link_to 'Edit', edit_article_path(@article)
+'  |
+= link_to 'Back', articles_path
