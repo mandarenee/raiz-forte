@@ -1,8 +1,8 @@
 p
   strong Title:
   = @article.title
-p
-  = @article.body
+
+= @article.body.html_safe
 p
   strong Description:
   = @article.description

@@ -24,6 +24,7 @@ gem 'friendly_id'
 gem 'aws-sdk'
 gem 'devise'
 gem 'pundit'
+gem 'tinymce-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
