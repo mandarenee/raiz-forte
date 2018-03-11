@@ -10,15 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227043756) do
+ActiveRecord::Schema.define(version: 20180311190728) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.text     "description"
     t.boolean  "published"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "alt"
+    t.string   "hint"
+    t.string   "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

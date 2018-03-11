@@ -25,6 +25,11 @@ gem 'aws-sdk'
 gem 'devise'
 gem 'pundit'
 gem 'tinymce-rails'
+gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
+gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 
 group :development, :test do
   gem 'byebug', platform: :mri

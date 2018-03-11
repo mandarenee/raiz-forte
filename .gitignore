@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+/.env
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -16,6 +17,9 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/public/system/articles
+/public/system/images
+/public/uploads/image
 
 # Ignore Byebug command history file.
 .byebug_history
