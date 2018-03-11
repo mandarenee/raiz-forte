@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RaizForte</title>
+    <title>raiz-forte</title>
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon" %>
   </head>
-
+  <header>
+    <div id="main-container" class="container">
+      <div class="col header">
+        <div class="text-center">
+          <div class="logo-image">
+            <%= image_tag("/LOGO 1.png") %>
+          </div>
+           <%= render partial: "layouts/navbar" %>
+        </div>
+      </div>
+    </div>
+  </header>
   <body>
     <% if user_signed_in? %>
     <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
