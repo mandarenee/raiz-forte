@@ -1,6 +1,6 @@
 - if user_signed_in?
   = link_to 'New Category', new_category_path
-  #categories-container.container
+  #articles-container.container
     .row
       - @categories.each do |category|
         - category.articles.each do |article|

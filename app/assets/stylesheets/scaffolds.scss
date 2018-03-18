@@ -2,6 +2,8 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 @font-face {
@@ -28,11 +30,15 @@ body {
   margin: 0 33px 33px 33px;
   height: 100%;
   padding-bottom: 50px;
+  max-width: 100%;
 }
 
 footer {
-  position: absolute;
+  font-family: 'Kirvy Bold', sans-serif;
   height: 50px;
+  position: absolute;
+  width: 100%;
+  margin-left: -33px;
 }
 
 p, ol, ul, td {
@@ -227,6 +233,6 @@ li.contact-icon img {
 }
 
 #articles-container img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
