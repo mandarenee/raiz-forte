@@ -4,7 +4,7 @@ class TinymceAssetsController < ApplicationController
     def create
         geometry = Paperclip::Geometry.from_file params[:file]
         image    = Image.create params.permit(:file, :alt, :hint)
-        
+
         render json: {
             image: {
                 url:    image.file.url,

@@ -18,9 +18,11 @@
           </div>
         </div>
         <div class="col-sm-2 text-center">
-          <div class="logo-name">
-            <%= image_tag("/TIPOGRAFIA BLACK.png") %>
-          </div>
+          <%= link_to(root_path) do %>
+            <div class="logo-name">
+              <%= image_tag("/TIPOGRAFIA BLACK.png") %>
+            </div>
+          <% end %>
         </div>
         <div class="col-sm-5 pull-right">
           <div class="logo-image">
@@ -32,7 +34,7 @@
   </header>
   <body>
     <% if user_signed_in? %>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
     <% end %>
   
     <% if notice %>
@@ -42,15 +44,21 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
-    <div class='container'>
+    <div class='container body-container'>
       <%= yield %>
     </div>
-    <footer>
-      <div class="container">
-        Raiz Forte <%= Time.now.year %>
-      </div>
-    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.js"></script>
   </body>
+  <footer>
+    <div class="container text-center">
+      Raiz Forte <%= Time.now.year %>
+      |
+      <%= link_to "sobre raiz-forte", sobre_path %>
+      |
+      <%= link_to "contato", contato_path %>
+      |
+      <%= link_to "parcerias", parceiras_path %>
+    </div>
+  </footer>
 </html>
