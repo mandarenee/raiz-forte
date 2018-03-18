@@ -14,6 +14,10 @@ p, ol, ul, td {
   margin: 33px;
 }
 
+h2 {
+  margin: 33px;
+}
+
 pre {
   background-color: #eee;
   padding: 10px;
@@ -85,16 +89,22 @@ div {
 
 header {
   .header {
+    width: 100%;
     h1 {
       font-size: 90px;
     }
     font-family: 'Open Sans Condensed', sans-serif;
-    margin: 10px 0 75px 0;
+    margin: 0px 0 75px 0;
   }
 }
 
 .logo-image img {
-  width: 250px;
+  margin-left: 80px;
+  width: 150px;
+}
+
+.logo-name img {
+  width: 150px;
 }
 
 .navbar .navbar-nav {
@@ -111,25 +121,31 @@ header {
     background-color: #FFF;
     background-image: none;
     border-radius: 0;
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid #e7e7e7;
-    border-bottom: 1px solid #e7e7e7;
+    border: none;
     box-shadow: none;
 }
 
 .navbar {
     position: relative;
-    min-height: 50px;
-    margin-bottom: 20px;
-    border-left: 1px solid transparent;
-    border-right: 1px solid transparent;
+    height: 150px;
+    border: none;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   font-weight: bold;
   background: none;
 }
+
+.navbar-nav li a {
+  padding: 0 15px;
+  line-height: 150px;
+}
+
+.navbar-header a {
+  padding: 0 15px;
+  line-height: 150px;
+}
+
 .page-block {
   margin-left: auto;
   margin-right: auto;
@@ -163,7 +179,7 @@ header .header {
 
 @media (min-width: 768px) {
   #main-container {
-    width: 700px;
+    width: 100%;
   }
 }
 
