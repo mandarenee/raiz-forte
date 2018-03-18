@@ -1,15 +1,16 @@
-p
-  strong Title:
-  = @article.title
+- if user_signed_in? || @article.published?
+  p
+    strong Title:
+    = @article.title
 
-= @article.body.html_safe
-p
-  strong Description:
-  = @article.description
-p
-  strong Published:
-  = @article.published
+  = @article.body.html_safe
+  p
+    strong Description:
+    = @article.description
+  p
+    strong Published:
+    = @article.published
 
-= link_to 'Edit', edit_article_path(@article)
-'  |
-= link_to 'Back', articles_path
+  = link_to 'Edit', edit_article_path(@article)
+  '  |
+  = link_to 'Back', articles_path

@@ -1,16 +1,16 @@
 - if user_signed_in?
   = link_to 'New Article', new_article_path
-#main-container.container
+#articles-container.container
   .row
     - @articles.reverse.each do |article|
-      hr
-      h2.text-center
-        = link_to article.title, article
-      hr
-      p = article.body.html_safe
-      - if user_signed_in?
-        = link_to 'Edit', edit_article_path(article)
-        br
-        = link_to 'Destroy', article, data: { confirm: 'Are you sure?' }, method: :delete
+      - if user_signed_in? || article.published?
+        hr
+        h2.text-center
+          = link_to article.title, article
+        hr
+        p = article.body.html_safe
+        - if user_signed_in?
+          = link_to 'Edit', edit_article_path(article)
+          br
+          = link_to 'Destroy', article, data: { confirm: 'Are you sure?' }, method: :delete
   br
-
