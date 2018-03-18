@@ -8,7 +8,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # storage :fog
   if Rails.env.development? || Rails.env.test?
     storage :file
+    puts "******************************"
+    puts "It's in image uploader dev"
   else
+    puts "******************************"
+    puts "It's in image uploader prod"
     storage :fog
   end
 
