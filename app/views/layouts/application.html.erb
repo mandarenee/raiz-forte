@@ -12,11 +12,20 @@
   <header>
     <div id="main-container" class="container">
       <div class="col header">
-        <div class="text-center">
+        <div class="col-sm-5 pull-left">
           <div class="logo-image">
-            <%= image_tag("/LOGO 1.png") %>
+            <%= image_tag("/LOGO 3.png") %>
           </div>
-           <%= render partial: "layouts/navbar" %>
+        </div>
+        <div class="col-sm-2 text-center">
+          <div class="logo-name">
+            <%= image_tag("/TIPOGRAFIA BLACK.png") %>
+          </div>
+        </div>
+        <div class="col-sm-5 pull-right">
+          <div class="logo-image">
+            <%= render partial: "layouts/navbar" %>
+          </div>
         </div>
       </div>
     </div>
