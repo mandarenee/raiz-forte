@@ -20,6 +20,8 @@ class ArticlesController < ApplicationController
     @article.body = sanitize(@article.body)
 
     if @article.save
+      @categories = Category.where(id: article_params[:category_id])
+      @article.categories << @categories
       redirect_to @article, notice: 'Article was successfully created.'
     else
       render :new
@@ -29,6 +31,8 @@ class ArticlesController < ApplicationController
   def update
     article_params['body'] = sanitize(article_params['body'])
     if @article.update(article_params)
+      @categories = Category.where(id: article_params[:category_id])
+      @article.categories << @categories
       redirect_to @article, notice: 'Article was successfully updated.'
     else
       render :edit
@@ -54,6 +58,6 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:title, :body, :description, :published)
+      params.require(:article).permit(:title, :body, :category_id, :description, :published)
     end
 end

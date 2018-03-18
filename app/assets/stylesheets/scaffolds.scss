@@ -4,6 +4,16 @@ html {
   padding: 0;
 }
 
+@font-face {
+  font-family: "Kirvy Bold";
+  src: url(/assets/fonts/KIRVY-BOLD.OTF) format("truetype");
+}
+
+@font-face {
+  font-family: "Reef";
+  src: url(/assets/fonts/REEF.OTF) format("truetype");
+}
+
 .body-container {
   position: relative;
   min-height: 100%;
@@ -111,7 +121,7 @@ header {
     h1 {
       font-size: 90px;
     }
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Kirvy Bold', sans-serif;
     margin: 0px 0 75px 0;
   }
 }
@@ -157,6 +167,12 @@ header {
 .navbar-nav li a {
   padding: 0 15px;
   line-height: 150px;
+}
+
+.navbar-default .navbar-nav > li > a {
+  font-family: 'Reef', sans-serif;
+  color: #030304;
+  font-size: 16px;
 }
 
 .navbar-header a {

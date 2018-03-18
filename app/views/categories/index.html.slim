@@ -1,0 +1,19 @@
+- if user_signed_in?
+  = link_to 'New Category', new_category_path
+  #categories-container.container
+    .row
+      - @categories.each do |category|
+        - category.articles.each do |article|
+          hr
+          - if user_signed_in? || article.published?
+            hr
+            h2.text-center
+              = link_to article.title, article
+            hr
+            p = article.body.html_safe
+
+            - if user_signed_in?
+              = link_to 'Edit', edit_category_path(category)
+              br
+              = link_to 'Destroy', category, data: { confirm: 'Are you sure?' }, method: :delete
+    br
