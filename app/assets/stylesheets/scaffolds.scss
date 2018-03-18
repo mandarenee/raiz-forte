@@ -180,6 +180,10 @@ header {
   line-height: 150px;
 }
 
+.row {
+  width: 100%;
+}
+
 .page-block {
   margin-left: auto;
   margin-right: auto;
@@ -220,4 +224,9 @@ header .header {
 li.contact-icon img {
   width: 100px;
   height: 100px;
+}
+
+#articles-container img {
+  width: 100%;
+  height: auto;
 }
