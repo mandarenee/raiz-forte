@@ -29,6 +29,7 @@ gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'rails-html-sanitizer'
 
 group :development, :test do
   gem 'byebug', platform: :mri

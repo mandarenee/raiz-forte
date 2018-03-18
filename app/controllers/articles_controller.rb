@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.body = sanitize(@article.body)
 
     if @article.save
       redirect_to @article, notice: 'Article was successfully created.'
@@ -26,6 +27,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    article_params['body'] = sanitize(article_params['body'])
     if @article.update(article_params)
       redirect_to @article, notice: 'Article was successfully updated.'
     else
@@ -41,6 +43,14 @@ class ArticlesController < ApplicationController
   private
     def set_article
       @article = Article.find(params[:id])
+    end
+
+    def sanitize(text)
+      white_list_sanitizer = Rails::Html::WhiteListSanitizer.new
+      body = text
+      body = body.gsub("&nbsp\;", "<br/>")
+      body = body.gsub("\n", "<br/>")
+      body = white_list_sanitizer.sanitize(body, tags: %w(br strong), attributes: [])
     end
 
     def article_params
