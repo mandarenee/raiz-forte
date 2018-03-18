@@ -20,6 +20,8 @@
 /public/system/articles
 /public/system/images
 /public/uploads/image
+/public/public
+/public/uploads
 
 # Ignore Byebug command history file.
 .byebug_history
