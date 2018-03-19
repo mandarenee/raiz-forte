@@ -1,3 +1,42 @@
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs:                  480px !default;
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min:              $screen-xs !default;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone:               $screen-xs-min !default;
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet:              $screen-sm-min !default;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md:                  992px !default;
+$screen-md-min:              $screen-md !default;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop:             $screen-md-min !default;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg:                  1200px !default;
+$screen-lg-min:              $screen-lg !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop:          $screen-lg-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+
 html {
   height: 100%;
   margin: 0;
@@ -27,7 +66,7 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  margin: 0 33px 33px 33px;
+  margin: 0 90px 33px 33px;
   height: 100%;
   padding-bottom: 50px;
   max-width: 100%;
@@ -137,8 +176,19 @@ header {
   width: 150px;
 }
 
+.logo-name {
+  position: relative;
+  height: 150px;
+}
+
 .logo-name img {
-  width: 150px;
+  width: 250px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .navbar .navbar-nav {
@@ -171,7 +221,7 @@ header {
 }
 
 .navbar-nav li a {
-  padding: 0 15px;
+  padding: 0 13px;
   line-height: 150px;
 }
 
@@ -235,4 +285,25 @@ li.contact-icon img {
 #articles-container img {
   max-width: 100%;
   height: auto;
+}
+
+@media (max-width: $screen-sm-min) {
+  body { margin: 15px; }
+  .col .header { height: 70px; }
+  .logo-name { height: 70px; }
+  .logo-name img { margin-top: 2px; width: 200px; }
+  .navbar { height: 70px;}
+  h2 { margin: 0; }
+  p { margin: 0; }
+  .row { margin: 0; }
+  .navbar-nav li a { line-height: 40px; }
+  .nav > li {
+    height: 40px;
+    background-color: white;
+    z-index: 1000;
+  }
+  .navbar-nav { margin: none; }
+  .navbar.navbar-default { z-index: 1000; }
+  .navbar-collapse.in { border: solid black; }
+  footer { margin-left: -15px; }
 }

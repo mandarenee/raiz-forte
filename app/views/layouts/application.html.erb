@@ -12,22 +12,30 @@
   <header>
     <div id="main-container" class="container">
       <div class="col header">
-        <div class="col-sm-5 pull-left">
+        <div class="hidden-xs hidden-sm col-md-4 pull-left">
           <div class="logo-image">
             <%= image_tag("/LOGO 3.png") %>
           </div>
         </div>
-        <div class="col-sm-2 text-center">
+        <div class="visible-xs pull-left">
+          <%= render partial: "layouts/navbar" %>
+        </div>
+        <div class="hidden-sm col-md-4 text-center">
           <%= link_to(root_path) do %>
             <div class="logo-name">
               <%= image_tag("/TIPOGRAFIA BLACK.png") %>
             </div>
           <% end %>
         </div>
-        <div class="col-sm-5 pull-right">
-          <div class="logo-image">
-            <%= render partial: "layouts/navbar" %>
-          </div>
+        <div class="visible-sm pull-left">
+          <%= link_to(root_path) do %>
+            <div class="logo-name">
+              <%= image_tag("/LOGO 1.png") %>
+            </div>
+          <% end %>
+        </div>
+        <div class="hidden-xs col-md-4 pull-right">
+          <%= render partial: "layouts/navbar" %>
         </div>
       </div>
     </div>
