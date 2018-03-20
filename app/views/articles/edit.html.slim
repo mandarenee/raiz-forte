@@ -1,9 +1,8 @@
 - if user_signed_in?
+    .admin-button
+        button = link_to 'Show', @article
+        button = link_to 'Back', articles_path
+
     h1 Editing article
 
     == render 'form'
-
-    = link_to 'Show', @article
-    '  |
-    = link_to 'Back', articles_path
-

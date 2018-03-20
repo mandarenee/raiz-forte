@@ -1,26 +1,27 @@
 - if user_signed_in?
-  = form_for @article do |f|
-    - if @article.errors.any?
-      #error_explanation
-        h2 = "#{pluralize(@article.errors.count, "error")} prohibited this article from being saved:"
-        ul
-          - @article.errors.full_messages.each do |message|
-            li = message
+  .form
+    = form_for @article do |f|
+      - if @article.errors.any?
+        #error_explanation
+          h2 = "#{pluralize(@article.errors.count, "error")} prohibited this article from being saved:"
+          ul
+            - @article.errors.full_messages.each do |message|
+              li = message
 
-    .field
-      = f.label :title
-      = f.text_field :title
-    .field
-      = f.label :body
-      = f.text_area :body, class: 'tinymce', rows: 40, cols: 120
-      = tinymce
-    .field
-      = f.label :category_id
-      = f.select :category_id, options_from_collection_for_select(Category.all, :id, :name, f.object.category_id)
-    .field
-      = f.label :description
-      = f.text_area :description
-    .field
-      = f.label :published
-      = f.check_box :published
-    .actions = f.submit
+      .field
+        = f.label :title
+        = f.text_field :title
+      .field
+        = f.label :body
+        = f.text_area :body, class: 'tinymce', rows: 40, cols: 120
+        = tinymce
+      .field
+        = f.label :category_id
+        = f.select :category_id, options_from_collection_for_select(Category.all, :id, :name, f.object.category_id)
+      .field
+        = f.label :description
+        = f.text_area :description
+      .field
+        = f.label :published
+        = f.check_box :published
+      .actions = f.submit

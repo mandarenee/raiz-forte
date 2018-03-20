@@ -1,9 +1,8 @@
 - if user_signed_in?
+    .admin-button
+        button = link_to 'Show', @category
+        button = link_to 'Back', categories_path
+
     h1 Editing category
 
     == render 'form'
-
-    = link_to 'Show', @category
-    '  |
-    = link_to 'Back', categories_path
-

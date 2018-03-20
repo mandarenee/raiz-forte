@@ -240,6 +240,13 @@ header {
   width: 100%;
 }
 
+.form {
+  label {
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+}
+
 .page-block {
   margin-left: auto;
   margin-right: auto;
@@ -285,6 +292,10 @@ li.contact-icon img {
 #articles-container img {
   max-width: 100%;
   height: auto;
+}
+
+.admin-button button {
+  margin-right: 15px;
 }
 
 @media (max-width: $screen-sm-min) {

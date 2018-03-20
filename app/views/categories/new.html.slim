@@ -1,6 +1,8 @@
 - if user_signed_in?
+    .admin-button
+        button = link_to 'Back', categories_path
+
     h1 New category
 
     == render 'form'
 
-    = link_to 'Back', categories_path
