@@ -1,7 +1,7 @@
 - if user_signed_in? || @article.published?
   
-  .article
-    h2 = @article.title
+  #articles-container.article
+    h2.text-center = @article.title
 
     = @article.body.html_safe
 
