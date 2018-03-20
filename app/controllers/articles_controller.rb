@@ -67,10 +67,12 @@ class ArticlesController < ApplicationController
     @articles = category.articles.empty? ? [] : category.articles
     puts "************ super category: #{super_category} ******************"
     puts "************ category: #{category.name} ******************"
-    puts "************ article: #{@articles} ******************"
+    puts "************ articles: #{@articles} ******************"
     puts "************ article count: #{@articles.count} ******************"
     @articles.each do |article|
       puts "************ article id: #{article.id} ******************"
+      puts "************ article name: #{article.name} ******************"
+      puts "************ article published: #{article.published} ******************"
     end
     render template: 'articles/index'
   end
