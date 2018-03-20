@@ -64,7 +64,14 @@ class ArticlesController < ApplicationController
 
   def call_super_category_index(super_category)
     category = Category.where(super_category_id: Category.super_category_ids[super_category]).first
-    @articles = category.articles.nil? ? [] : category.articles
+    @articles = category.articles.empty? ? [] : category.articles
+    puts "************ super category: #{super_category} ******************"
+    puts "************ category: #{category.name} ******************"
+    puts "************ article: #{@articles} ******************"
+    puts "************ article count: #{@articles.count} ******************"
+    @articles.each do |article|
+      puts "************ article id: #{article.id} ******************"
+    end
     render template: 'articles/index'
   end
 
