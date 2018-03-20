@@ -39,8 +39,7 @@ class CategoriesController < ApplicationController
     end
 
     def corpo
-        @categories = Category.where(super_category_id: Category.super_category_ids['corpo'])
-        render template: 'categories/index'
+        call_super_category_index('corpo')
     end
 
     def mente
@@ -50,16 +49,17 @@ class CategoriesController < ApplicationController
     def alma
         call_super_category_index('alma')
     end
-
+    
+    
+    private
+    
+    def set_category
+      @category = Category.find(params[:id])
+    end
+    
     def call_super_category_index(super_category)
         @categories = Category.where(super_category_id: Category.super_category_ids[super_category])
         render template: 'categories/index'
-    end
-  
-    private
-  
-    def set_category
-      @category = Category.find(params[:id])
     end
   
     def category_params

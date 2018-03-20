@@ -1,19 +1,27 @@
 - if user_signed_in?
   = link_to 'New Category', new_category_path
-  #articles-container.container
+  .container
     .row
-      - @categories.each do |category|
-        - category.articles.each do |article|
-          hr
-          - if user_signed_in? || article.published?
-            hr
-            h2.text-center
-              = link_to article.title, article
-            hr
-            p = article.body.html_safe
+      h2 Manage categories:
+    - @categories.each do |category|
+      .row
+        .col-xs-6.col-sm-3.col-lg-2
+          | #{category.name} (#{category.super_category_id})
+        .col-xs-3.col-sm-1.col-md-1
+          = link_to 'Edit', edit_category_path(category)
+        .col-xs-3.col-sm-1.col-md-1
+          = link_to 'Destroy', category, data: { confirm: 'Are you sure?' }, method: :delete
 
-            - if user_signed_in?
-              = link_to 'Edit', edit_category_path(category)
-              br
-              = link_to 'Destroy', category, data: { confirm: 'Are you sure?' }, method: :delete
+
+#articles-container.container
+  .row
+    - @categories.each do |category|
+      - category.articles.each do |article|
+        hr
+        - if user_signed_in? || article.published?
+          hr
+          h2.text-center
+            = link_to article.title, article
+          hr
+          p = article.body.html_safe
     br
