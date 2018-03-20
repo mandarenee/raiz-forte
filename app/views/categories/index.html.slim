@@ -14,11 +14,10 @@
 
 
 #articles-container.container
-  .row
-    - @categories.each do |category|
-      - category.articles.each do |article|
-        hr
-        - if user_signed_in? || article.published?
+  - @categories.each do |category|
+    - category.articles.each do |article|
+      - if user_signed_in? || article.published?
+        .row
           hr
           h2.text-center
             = link_to article.title, article
