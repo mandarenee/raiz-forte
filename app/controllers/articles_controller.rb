@@ -3,9 +3,6 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-    @articles.each do |article|
-      puts "****** art_id: #{ article.id } cat_id: #{ article.category_id } pub: #{ article.published } *******"
-    end
   end
 
   def show
@@ -48,17 +45,14 @@ class ArticlesController < ApplicationController
   end
 
   def corpo
-    puts "************ corpo ******************"
     call_super_category_index('corpo')
   end
 
   def mente
-    puts "************ mente ******************"
     call_super_category_index('mente')
   end
 
   def alma
-    puts "************ alma ******************"
     call_super_category_index('alma')
   end
 
@@ -70,10 +64,7 @@ class ArticlesController < ApplicationController
 
   def call_super_category_index(super_category)
     category_id = Category.super_category_ids[super_category]
-    puts "************ super category: #{super_category} ******************"
     @articles = Article.joins(:categories).where("categories.super_category_id = ?", category_id)
-    # puts "************ categories: #{categories.count} ******************"
-    # puts "************ article count: #{@articles.count} ******************"
     render template: 'articles/index'
   end
 
