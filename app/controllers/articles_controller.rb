@@ -70,9 +70,9 @@ class ArticlesController < ApplicationController
 
   def call_super_category_index(super_category)
     category_id = Category.super_category_ids[super_category]
-    @articles = Article.joins(:categories).where("categories.super_category_id == ?", category_id)
+    puts "************ super category: #{super_category} ******************"
+    @articles = Article.joins(:categories).where("categories.super_category_id = ?", category_id)
     # puts "************ categories: #{categories.count} ******************"
-    # puts "************ super category: #{super_category} ******************"
     # puts "************ article count: #{@articles.count} ******************"
     render template: 'articles/index'
   end
