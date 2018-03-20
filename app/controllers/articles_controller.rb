@@ -67,7 +67,6 @@ class ArticlesController < ApplicationController
     @articles = !!category.articles ? category.articles : []
     puts "************ super category: #{super_category} ******************"
     puts "************ category: #{category.name} ******************"
-    puts "************ articles: #{@articles} ******************"
     puts "************ article count: #{@articles.count} ******************"
     @articles.each do |article|
       puts "************ article id: #{article.id} ******************"
