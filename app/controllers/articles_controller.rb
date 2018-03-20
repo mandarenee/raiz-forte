@@ -64,7 +64,7 @@ class ArticlesController < ApplicationController
 
   def call_super_category_index(super_category)
     category = Category.where(super_category_id: Category.super_category_ids[super_category]).first
-    @articles = category.articles
+    @articles = category.articles.nil? ? [] : category.articles
     render template: 'articles/index'
   end
 
