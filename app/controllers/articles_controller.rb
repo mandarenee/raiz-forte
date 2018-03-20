@@ -71,7 +71,7 @@ class ArticlesController < ApplicationController
     puts "************ article count: #{@articles.count} ******************"
     @articles.each do |article|
       puts "************ article id: #{article.id} ******************"
-      puts "************ article name: #{article.name} ******************"
+      puts "************ article title: #{article.title} ******************"
       puts "************ article published: #{article.published} ******************"
     end
     render template: 'articles/index'
