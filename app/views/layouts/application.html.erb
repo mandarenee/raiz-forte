@@ -39,11 +39,11 @@
         </div>
       </div>
     </div>
+    <% if user_signed_in? %>
+      <%= render partial: "layouts/admin_navbar" %>
+    <% end %>
   </header>
   <body>
-    <% if user_signed_in? %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
-    <% end %>
   
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>

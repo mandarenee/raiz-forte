@@ -15,11 +15,6 @@
         <li><%= link_to 'corpo', corpo_path %></li>
         <li><%= link_to 'mente', mente_path %></li>
         <li><%= link_to 'alma', alma_path %></li>
-        <%- if user_signed_in? %>
-          <li><%= link_to 'new blog post', new_article_path %></li>
-          <li><%= link_to 'new category', new_category_path %></li>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <% end %>
       </ul>
 
     </div><!-- /.navbar-collapse -->
