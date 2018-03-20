@@ -44,20 +44,39 @@ class ArticlesController < ApplicationController
     redirect_to articles_url, notice: 'Article was successfully destroyed.'
   end
 
+  def corpo
+    call_super_category_index('corpo')
+  end
+
+  def mente
+    call_super_category_index('mente')
+  end
+
+  def alma
+    call_super_category_index('alma')
+  end
+
+  
   private
-    def set_article
-      @article = Article.find(params[:id])
-    end
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
-    def sanitize(text)
-      white_list_sanitizer = Rails::Html::WhiteListSanitizer.new
-      body = text
-      body = body.gsub("&nbsp\;", "<br/>")
-      body = body.gsub("\n", "<br/>")
-      body = white_list_sanitizer.sanitize(body, tags: %w(br strong), attributes: [])
-    end
+  def call_super_category_index(super_category)
+    category = Category.where(super_category_id: Category.super_category_ids[super_category]).first
+    @articles = category.articles
+    render template: 'articles/index'
+  end
 
-    def article_params
-      params.require(:article).permit(:title, :body, :category_id, :description, :published)
-    end
+  def sanitize(text)
+    white_list_sanitizer = Rails::Html::WhiteListSanitizer.new
+    body = text
+    body = body.gsub("&nbsp\;", "<br/>")
+    body = body.gsub("\n", "<br/>")
+    body = white_list_sanitizer.sanitize(body, tags: %w(br strong), attributes: [])
+  end
+
+  def article_params
+    params.require(:article).permit(:title, :body, :category_id, :description, :published)
+  end
 end

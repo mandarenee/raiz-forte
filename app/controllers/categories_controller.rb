@@ -37,29 +37,11 @@ class CategoriesController < ApplicationController
       @category.destroy
       redirect_to categories_path, notice: 'Category was successfully destroyed.'
     end
-
-    def corpo
-        call_super_category_index('corpo')
-    end
-
-    def mente
-        call_super_category_index('mente')
-    end
-
-    def alma
-        call_super_category_index('alma')
-    end
-    
     
     private
     
     def set_category
       @category = Category.find(params[:id])
-    end
-    
-    def call_super_category_index(super_category)
-        @categories = Category.where(super_category_id: Category.super_category_ids[super_category])
-        render template: 'categories/index'
     end
   
     def category_params

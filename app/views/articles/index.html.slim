@@ -1,9 +1,9 @@
 - if user_signed_in?
   = link_to 'New Article', new_article_path
 #articles-container.container
-  .row
-    - @articles.reverse.each do |article|
-      - if user_signed_in? || article.published?
+  - @articles.reverse.each do |article|
+    - if user_signed_in? || article.published?
+      .row
         hr
         h2.text-center
           = link_to article.title, article

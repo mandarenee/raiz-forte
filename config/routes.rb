@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :articles
   resources :categories
-  get '/corpo' => 'categories#corpo', as: :corpo
-  get '/mente' => 'categories#mente', as: :mente
-  get '/alma' => 'categories#alma', as: :alma
+  get '/corpo' => 'articles#corpo', as: :corpo
+  get '/mente' => 'articles#mente', as: :mente
+  get '/alma' => 'articles#alma', as: :alma
   post '/tinymce_assets' => 'tinymce_assets#create'
   get 'parceiras' => 'static_pages#parceiras', as: :parceiras
   get 'contato' => 'static_pages#contato', as: :contato
