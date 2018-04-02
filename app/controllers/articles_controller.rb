@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.friendly.find(params[:id])
   end
 
   def new
@@ -29,6 +30,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @article = Article.friendly.find(params[:id])
     article_params['body'] = sanitize(article_params['body'])
     if @article.update(article_params)
       @categories = Category.where(id: article_params[:category_id])
@@ -59,7 +61,7 @@ class ArticlesController < ApplicationController
   
   private
   def set_article
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   def call_super_category_index(super_category)

@@ -19,7 +19,6 @@ gem 'font-awesome-rails'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'social-share-button'
-gem 'friendly_id'
 gem 'aws-sdk'
 gem 'devise'
 gem 'pundit'
@@ -30,6 +29,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'rails-html-sanitizer'
+gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
