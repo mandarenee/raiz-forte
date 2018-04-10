@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       @categories = Category.where(id: article_params[:category_id])
-      @article.categories << @categories
+      @article.categories = @categories
       redirect_to @article, notice: 'Article was successfully created.'
     else
       render :new
@@ -34,7 +34,9 @@ class ArticlesController < ApplicationController
     article_params['body'] = sanitize(article_params['body'])
     if @article.update(article_params)
       @categories = Category.where(id: article_params[:category_id])
-      @article.categories << @categories
+      unless @article.categories.where(id: @categories.first.id).exists?
+        @article.categories = @categories
+      end
       redirect_to @article, notice: 'Article was successfully updated.'
     else
       render :edit
