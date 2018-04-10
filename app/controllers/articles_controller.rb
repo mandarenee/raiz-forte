@@ -77,7 +77,7 @@ class ArticlesController < ApplicationController
     body = text
     body = body.gsub("&nbsp\;", "<br/>")
     body = body.gsub("\n", "<br/>")
-    body = white_list_sanitizer.sanitize(body, tags: %w(br strong), attributes: [])
+    body = white_list_sanitizer.sanitize(body, tags: %w(a href br strong), attributes: %w(href))
   end
 
   def article_params
