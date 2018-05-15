@@ -1,7 +1,8 @@
 toolbar:
   - styleselect | bold italic | undo redo | alignleft aligncenter alignright alignjustify
-  - bullist numlist outdent indent | uploadimage | link
+  - bullist numlist outdent indent | uploadimage | link | media
 plugins:
   - uploadimage
   - link
+  - media
 selector: 'textarea.tinymce'
