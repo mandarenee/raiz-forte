@@ -60,7 +60,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.js"></script>
   </body>
   <footer>
-    <div class="container text-center">
+    <div class="container text-center footer-div">
       raiz-forte <%= Time.now.year %>
       |
       <%= link_to "sobre raiz-forte", sobre_path %>
@@ -68,6 +68,14 @@
       <%= link_to "contato", contato_path %>
       |
       <%= link_to "parcerias", parceiras_path %>
+    </div>
+    <div class="container text-center footer-div">
+      <a href='https://www.facebook.com/raizforteoficial/' target='_blank'>
+        <%= fa_icon 'facebook-square 2x' %>
+      </a>
+      <a href='https://www.instagram.com/raizforte_/' target='_blank'>
+        <%= fa_icon 'instagram 2x' %>
+      </a>
     </div>
   </footer>
 </html>
