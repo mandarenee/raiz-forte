@@ -77,14 +77,18 @@ class ArticlesController < ApplicationController
     body = text
     body = body.gsub("&nbsp\;", "<br/>")
     body = body.gsub("\n", "<br/>")
-    body = body.gsub("width=560\" width=\"560\" height=\"315\"", '')
     body = white_list_sanitizer.sanitize(body, tags: %w(div iframe a href br strong), attributes: %w(href border overflow src show_text frameborder scrolling allowfullscreen))
-    open_div = "<div id='fb-video'>"
-    closing_div = "</div>"
-    body = [open_div, body, closing_div].join('')
-    # byebug
-    # body.insert(0, `&lt;div id=\”fb-video\”&gt;`)
-    # body << `&lt;div/&gt;`
+
+    if body.include? 'iframe'
+      open_div = "<div class='fb-video'>"
+      closing_div = "</div>"
+      spliceIndex = body.index('<iframe')
+      body.insert(spliceIndex, open_div)
+      spliceIndex = body.index('</iframe>')
+      body.insert((spliceIndex + 9), closing_div)
+    end
+    
+    body
   end
 
   def article_params
